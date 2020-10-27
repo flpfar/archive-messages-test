@@ -4,6 +4,10 @@ class Message < ApplicationRecord
 
   before_create :setup_state
 
+  def self.archive_all
+    @messages = Message.where.not(state: 'archived').update_all(state: 'archived')
+  end
+
   def read
     update_attribute :state, 'read'
   end

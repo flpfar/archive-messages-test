@@ -30,18 +30,6 @@ O que mais importa nesse momento é ter certeza de que você entendeu o requisit
 
    Quando o link for clicado, todas as mensagens não arquivadas do usuário devem ser atualizadas para o state 'archived'.
 
-### O que será avaliado
+## Solução
 
-Em ordem de prioridade:
-
-1. Entendimento do requisito
-2. Resolução do problema
-3. Correto entendimento do funcionamento da arquitetura de uma aplicação Ruby on Rails, colocando os códigos nos devidos lugares e usando as melhores práticas indicadas pelo framework
-4. Clareza do código
-5. Testes
-6. Controle de versão utilizando git
-
-### Sobre a entrega
-
-- A entrega deve ser feita através de um repositório privado no github, compartilhado com pelo menos um de nossos avaliadores: @andersondias ou @diegonarducci.
-- O resultado da avaliação será informado pelo recrutador em momento oportuno.
+  Para resolver este problema, criei uma rota `PUT /messages/archive_all` (o `PUT` é de acordo com o que já estava pré-criado no link). Ao acionar essa action do controller, um método de classe `Message.archive_all` é chamado fazendo um `update_all` em todas as mensagens com status diferente de `archived`. O usuário então é redirecionado ao index e uma mensagem de sucesso é apresentada.
